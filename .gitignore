@@ -1,0 +1,14 @@
+cat > .gitignore << 'EOF' 
+# Credenciais e configuração local — nunca versionar 
+.env 
+ 
+# Dependências do Composer (podem ser reinstaladas com "composer install") 
+/vendor/ 
+
+# Backups de banco
+*.sql
+
+# Arquivos de sistema 
+.DS_Store 
+Thumbs.db 
+EOF

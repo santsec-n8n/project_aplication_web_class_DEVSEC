@@ -1,0 +1,347 @@
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --preto: #080808;
+    --preto-card: #111111;
+    --preto-input: #181818;
+    --vermelho: #d90429;
+    --vermelho-hover: #ff1638;
+    --branco: #ffffff;
+    --cinza: #b5b5b5;
+    --cinza-escuro: #2a2a2a;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2a0008 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #111111 50%,
+            #050505
+        );
+
+    color: var(--branco);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* =========================================================
+   CONTAINER DO LOGIN
+   ========================================================= */
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+
+    background: rgba(17, 17, 17, 0.97);
+
+    padding: 40px 35px;
+
+    border: 1px solid #292929;
+    border-top: 3px solid var(--vermelho);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(217, 4, 41, 0.08);
+
+    position: relative;
+}
+
+
+/* Detalhe vermelho no topo */
+
+.login-container::before {
+    content: "";
+
+    position: absolute;
+
+    top: -3px;
+    left: 35px;
+
+    width: 60px;
+    height: 3px;
+
+    background: var(--vermelho-hover);
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+h2 {
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: var(--branco);
+
+    margin-bottom: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+.login-container::after {
+    content: "Acesse sua conta";
+
+    display: block;
+
+    text-align: center;
+
+    color: var(--cinza);
+
+    font-size: 13px;
+
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   GRUPOS DE INPUT
+   ========================================================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.input-group label {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #e5e5e5;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: var(--preto-input);
+
+    color: var(--branco);
+
+    border: 1px solid var(--cinza-escuro);
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+
+/* Placeholder */
+
+.input-group input::placeholder {
+    color: #777;
+}
+
+
+/* =========================================================
+   HOVER NO INPUT
+   ========================================================= */
+
+.input-group input:hover {
+    border-color: #444;
+}
+
+
+/* =========================================================
+   INPUT EM FOCO
+   ========================================================= */
+
+.input-group input:focus {
+    background: #1c1c1c;
+
+    border-color: var(--vermelho);
+
+    box-shadow:
+        0 0 0 2px rgba(217, 4, 41, 0.15),
+        0 0 12px rgba(217, 4, 41, 0.15);
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.btn {
+    width: 100%;
+
+    padding: 13px 18px;
+
+    margin-top: 5px;
+
+    background: var(--vermelho);
+
+    color: var(--branco);
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   BOTÃO HOVER
+   ========================================================= */
+
+.btn:hover {
+    background: var(--vermelho-hover);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(217, 4, 41, 0.3);
+}
+
+
+/* =========================================================
+   BOTÃO AO CLICAR
+   ========================================================= */
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MENSAGEM DE ERRO
+   ========================================================= */
+
+.erro {
+    color: #ff4d5f;
+
+    background: rgba(217, 4, 41, 0.08);
+
+    border: 1px solid rgba(217, 4, 41, 0.3);
+
+    border-radius: 6px;
+
+    padding: 10px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.login-container a {
+    display: block;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: var(--vermelho-hover);
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.login-container a:hover {
+    color: var(--branco);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-container {
+        padding: 30px 22px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
