@@ -29,16 +29,22 @@ if ($stmt === false) {
  
 $stmt->bind_param("ssss", $nome, $email, $telefone, $senhaHash); 
  
-if ($stmt->execute()) { 
-   header("Location: index.html?sucesso=1"); 
-   exit; 
-} else { 
-   if ($conn->errno === 1062) { // código de erro do MySQL para violação de UNIQUE 
-       die("Já existe um cadastro com este e-mail."); 
-   } 
-   error_log("Erro ao cadastrar: " . $stmt->error); 
-   die("Erro ao cadastrar. Tente novamente mais tarde."); 
+try {
+    if ($stmt->execute()) { 
+       header("Location: index.html?sucesso=1"); 
+       exit; 
+    } else { 
+       error_log("Erro ao cadastrar: " . $stmt->error); 
+       die("Erro ao cadastrar. Tente novamente mais tarde."); 
+    }
+} catch (mysqli_sql_exception $e) {
+   // Verifica se é violação de UNIQUE (código 1062)
+   if ($e->getCode() === 1062) {
+       die("Já existe um cadastro com este e-mail.");
+   }
+   // Outros erros de banco de dados
+   error_log("Erro ao cadastrar: " . $e->getMessage());
+   die("Erro ao cadastrar. Tente novamente mais tarde.");
 } 
- 
 $stmt->close(); 
 $conn->close();
