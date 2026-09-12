@@ -1,35 +1,53 @@
-<!DOCTYPE html> 
-<html lang="pt-br"> 
-<head> 
-   <meta charset="UTF-8"> 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-   <title>Login</title> 
-   <link rel="stylesheet" href="login.css"> 
-</head> 
-<body> 
-   <div class="login-container"> 
-       <h2>Login</h2> 
-       <form action="login.php" method="POST"> 
-           <div class="input-group"> 
-               <label for="usuario">E-mail</label> 
-               <input type="email" name="email" id="usuario" required> 
-           </div> 
-           <div class="input-group"> 
-               <label for="senha">Senha</label> 
-               <input type="password" name="senha" id="senha" required> 
-           </div> 
-           <button type="submit" class="btn">Entrar</button> 
-           <p id="mensagem-erro" class="erro"></p>
-       </form> 
-   </div> 
-   <!-- JavaScript para exibir a mensagem de erro -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>KNOT HARDWARE — Login</title>
+   <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+   <div class="login-shell">
+       <aside class="login-visual" aria-label="Branding KNOT HARDWARE">
+           <div class="login-brand">KNOT<span>HARDWARE</span></div>
+           <p class="login-tagline">Sistema de gestão de estoque</p>
+
+           <div class="login-visual-panel">
+               <span class="panel-label">Industrial control</span>
+               <!-- [CUSTOM IMAGE] FOTO/ARTE DO SLIPKNOT -->
+               <div class="panel-art login-emblem" aria-hidden="true" style="background-image:url('assets/images/slipknot/1900x1900-000000-80-0-0.jpg');"></div>
+           </div>
+       </aside>
+
+       <main class="login-panel">
+           <div class="login-container">
+               <p class="login-kicker">Acesso ao sistema</p>
+               <h2>Login</h2>
+               <form action="login.php" method="POST">
+                   <div class="input-group">
+                       <label for="usuario">E-mail</label>
+                       <input type="email" name="email" id="usuario" required autocomplete="username">
+                   </div>
+                   <div class="input-group">
+                       <label for="senha">Senha</label>
+                       <input type="password" name="senha" id="senha" required autocomplete="current-password">
+                   </div>
+                   <button type="submit" class="btn">Entrar</button>
+                   <p id="mensagem-erro" class="erro" aria-live="polite"></p>
+               </form>
+           </div>
+       </main>
+   </div>
+
    <script>
        const parametros = new URLSearchParams(window.location.search);
        const erro = parametros.get('erro');
 
        if (erro) {
-           document.getElementById('mensagem-erro').textContent = erro;
+           const mensagemErro = document.getElementById('mensagem-erro');
+           mensagemErro.textContent = erro;
+           mensagemErro.classList.add('visivel');
        }
    </script>
-</body> 
+</body>
 </html>
