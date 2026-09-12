@@ -12,7 +12,7 @@ if (!isset($_GET['id']) || !ctype_digit($_GET['id'])) {
 } 
 $id = (int) $_GET['id']; 
  
-$sql = "DELETE FROM usuario WHERE id = ?"; 
+$sql = "DELETE FROM usuarios WHERE id = ?"; 
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("i", $id); 
  

@@ -19,7 +19,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $senhaHash = password_hash($senhaTexto, PASSWORD_DEFAULT); 
  
 // Prepared statement: os "?" são substituídos com segurança pelo driver mysqli 
-$sql = "INSERT INTO usuario (nome, email, telefone, senha) VALUES (?, ?, ?, ?)"; 
+$sql = "INSERT INTO usuarios (nome, email, telefone, senha) VALUES (?, ?, ?, ?)"; 
 $stmt = $conn->prepare($sql); 
  
 if ($stmt === false) { 

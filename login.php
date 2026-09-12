@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } 
  
     // Busca o usuário pelo e-mail (prepared statement) 
-    $sql = "SELECT id, nome, senha FROM usuario WHERE email = ?"; 
+    $sql = "SELECT id, nome, senha FROM usuarios WHERE email = ?"; 
     $stmt = $conn->prepare($sql); 
     $stmt->bind_param("s", $email); 
     $stmt->execute(); 

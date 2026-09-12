@@ -20,7 +20,7 @@ if ($nome === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
    die("Dados inválidos."); 
 } 
  
-$sql = "UPDATE usuario SET nome = ?, email = ?, telefone = ? WHERE id = ?"; 
+$sql = "UPDATE usuarios SET nome = ?, email = ?, telefone = ? WHERE id = ?"; 
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("sssi", $nome, $email, $telefone, $id); 
  
